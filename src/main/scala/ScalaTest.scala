@@ -30,6 +30,7 @@ object ScalaTest {
 //    val tuplesIter: Iterator[(String, Int)] = flatIter.map(x => (x, 1))
 //    tuplesIter.foreach(println)
 
+
     val hsq = textSchema("hsq", 18)
     val bm = textSchema("hsq", 18)
     print(hsq.equals(bm))
