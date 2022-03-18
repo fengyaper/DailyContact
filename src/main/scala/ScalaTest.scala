@@ -17,6 +17,7 @@ object ScalaTest {
   }
 
 
+
   def main(args: Array[String]): Unit = {
 //    fun01(new Date(),3,"df")
 //    val use = fun01(_:Date,6,_:String)
@@ -30,11 +31,23 @@ object ScalaTest {
 //    val tuplesIter: Iterator[(String, Int)] = flatIter.map(x => (x, 1))
 //    tuplesIter.foreach(println)
 
+    val iterator: Iterator[Any] = ("longpang", 8,12, 10.3, "hello").productIterator
+    val unitsTest: Iterator[Unit] = iterator.map(x =>
+      x match {
 
-    val hsq = textSchema("hsq", 18)
-    val bm = textSchema("hsq", 18)
-    print(hsq.equals(bm))
+        case o: Double => println(s"$o is Double")
+        case e: Int if (e > 11) => println(s"$e > 11")
+        case ss:String => println(s"$x is String!!!!")
+        case _ => println("sha ye mei you")
+      }
+    )
+
+    unitsTest.foreach(println)
+
+
+
+
 
   }
-  case class textSchema(name:String,age:Int)
+
 }
