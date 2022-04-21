@@ -1,9 +1,12 @@
 package com.putao.spark
 
 import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.{SparkConf, SparkContext}
+import org.datanucleus.store.types.backed.Properties
 
 import scala.collection.mutable.ListBuffer
+import scala.tools.cmd.Property
 
 object RddPartitions {
   def main(args: Array[String]): Unit = {
@@ -53,6 +56,11 @@ object RddPartitions {
         }
       }
     ).foreach(println)
+
+    val spark: SparkSession = SparkSession.builder().master("local").appName("test").getOrCreate()
+    spark.sparkContext.setLogLevel("Error")
+    spark.read.textFile("E:\\IDEAProjectCode\\DailyContact\\data\\word")
+      .write.mode("overwrite").jdbc(jd)
 
 
   }
