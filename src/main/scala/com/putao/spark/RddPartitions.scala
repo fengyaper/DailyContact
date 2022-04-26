@@ -60,7 +60,7 @@ object RddPartitions {
     val spark: SparkSession = SparkSession.builder().master("local").appName("test").getOrCreate()
     spark.sparkContext.setLogLevel("Error")
     spark.read.textFile("E:\\IDEAProjectCode\\DailyContact\\data\\word")
-      .write.mode("overwrite").jdbc(jd)
+      .write.mode("overwrite")
 
 
   }
