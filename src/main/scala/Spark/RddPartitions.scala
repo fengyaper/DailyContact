@@ -1,12 +1,8 @@
-package com.putao.spark
+package Spark
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.{SparkConf, SparkContext}
-import org.datanucleus.store.types.backed.Properties
-
-import scala.collection.mutable.ListBuffer
-import scala.tools.cmd.Property
 
 object RddPartitions {
   def main(args: Array[String]): Unit = {
@@ -23,20 +19,20 @@ object RddPartitions {
     //      }
     //    ).foreach(println)
 
-//    rdd_sql.mapPartitionsWithIndex(
-//
-//      (pindex, piter) => {
-//        val list = new ListBuffer[String]
-//        println(s"----$pindex-sql-con-----")
-//        while (piter.hasNext) {
-//          val va = piter.next()
-//          println(s"---select-$pindex--${va}------")
-//          list.append(va + "select")
-//        }
-//        println("-----sql-close-----")
-//        list.toIterator
-//      }
-//    ).foreach(println)
+    //    rdd_sql.mapPartitionsWithIndex(
+    //
+    //      (pindex, piter) => {
+    //        val list = new ListBuffer[String]
+    //        println(s"----$pindex-sql-con-----")
+    //        while (piter.hasNext) {
+    //          val va = piter.next()
+    //          println(s"---select-$pindex--${va}------")
+    //          list.append(va + "select")
+    //        }
+    //        println("-----sql-close-----")
+    //        list.toIterator
+    //      }
+    //    ).foreach(println)
 
     rdd_sql.mapPartitionsWithIndex(
 
