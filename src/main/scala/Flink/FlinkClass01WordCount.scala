@@ -8,7 +8,7 @@ import org.apache.flink.streaming.api.scala._
  * @DateTime: 2022/4/28 下午4:27
  * @Description: flink 流计算的测试
  */
-object FlinkClass01Test {
+object FlinkClass01WordCount {
   def main(args: Array[String]): Unit = {
     /**
      * 1、createLocalEnvironment()：创建一个本地执行的环境 local
@@ -17,8 +17,9 @@ object FlinkClass01Test {
      *
      */
     val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
+    env.setParallelism(2)
     val initDStream: DataStream[String] = env.socketTextStream("node01", 8888)
-    val result: DataStream[(String, Int)] = initDStream
+    val result: DataStream[(String, Int)] = initDStream.setParallelism(3)
       .flatMap((ro: String) => ro.split(" ",-1))
       .map(((_: String), 1))
       .keyBy(0).sum(1)
