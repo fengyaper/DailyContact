@@ -1,6 +1,11 @@
 package Flink.Transformation
 
 import org.apache.flink.streaming.api.scala.{DataStream, SplitStream, StreamExecutionEnvironment}
+import org.apache.flink.streaming.api.scala._
+
+/*
+dfs
+ */
 
 object SplitTransformation {
   def main(args: Array[String]): Unit = {
