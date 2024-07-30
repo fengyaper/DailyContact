@@ -25,7 +25,7 @@ object Distinct {
     val table = tEnv.fromDataStream(dataStream, 'id, 'name, 'age)
 
     // 执行去重操作，根据多个字段去重
-    val distinctTable = table.distinct('id, 'name, 'age)
+    val distinctTable = table.distinct('id)
 
     // 转换为 DataStream
     val resultDataStream: DataStream[(Int, String, Int)] = tEnv.toAppendStream[(Int, String, Int)](distinctTable)
