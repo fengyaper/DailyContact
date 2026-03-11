@@ -14,7 +14,7 @@ public class Q0310BitWise {
     }
 
     public static void main(String[] args) {
-        int num = 4;
-        print(4);
+        int num = 12;
+        print(num);
     }
 }
