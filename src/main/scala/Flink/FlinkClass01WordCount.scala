@@ -16,6 +16,12 @@ object FlinkClass01WordCount {
      * 3、getExecutionEnvironment(): 根据执行环境创建上下文，比如 local cluster
      *
      */
+
+    // 如果是批处理 (DataSet API)
+    import org.apache.flink.api.scala._
+    import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
+    import org.apache.flink.api.common.typeinfo.TypeInformation
+
     val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
     env.setParallelism(2)
     val initDStream: DataStream[String] = env.socketTextStream("node01", 8888)
