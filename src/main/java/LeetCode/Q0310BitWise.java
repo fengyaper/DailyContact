@@ -5,7 +5,6 @@ public class Q0310BitWise {
 
     /**
      * 计算int的32位二进制
-     *
      * @param num
      */
     public static void print(int num) {
